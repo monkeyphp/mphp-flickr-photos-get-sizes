@@ -4,19 +4,19 @@
  *
  * PHP Version PHP 5.3.10
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Adapter\Interfaces\ResultSet
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-namespace MphpFlickrPhotoGetSizes\Adapter\Interfaces\ResultSet;
+namespace MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet;
 
 /**
  * ResultSetAdapterInterface
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Adapter\Interfaces\ResultSet
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
 interface ResultSetAdapterInterface 

@@ -4,19 +4,19 @@
  *
  * PHP Version PHP 5.3.10
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Result
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-namespace MphpFlickrPhotoGetSizes\Result;
+namespace MphpFlickrPhotosGetSizes\Result;
 
 /**
  * Result
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Result
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
 class Result extends \MphpFlickrBase\Result\AbstractResult
@@ -24,10 +24,10 @@ class Result extends \MphpFlickrBase\Result\AbstractResult
     
     /**
      * 
-     * @param \MphpFlickrPhotoGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface $adapter
-     * @return \MphpFlickrPhotoGetSizes\Result\Result
+     * @param \MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface $adapter
+     * @return \MphpFlickrPhotosGetSizes\Result\Result
      */
-    public function setAdapter(\MphpFlickrPhotoGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface $adapter) {
+    public function setAdapter(\MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface $adapter) {
         parent::setAdapter($adapter);
         return $this;
     }

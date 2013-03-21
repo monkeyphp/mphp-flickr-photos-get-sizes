@@ -4,22 +4,22 @@
  *
  * PHP Version PHP 5.3.10
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Adapter\Xml\Result
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Xml\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-namespace MphpFlickrPhotoGetSizes\Adapter\Xml\Result;
+namespace MphpFlickrPhotosGetSizes\Adapter\Xml\Result;
 
 use MphpFlickrBase\Adapter\Xml\Result\AbstractResultAdapter;
-use MphpFlickrPhotoGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface;
+use MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface;
 
 /**
  * ResultAdapter
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Adapter\Xml\Result
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Xml\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
 class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterface

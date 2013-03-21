@@ -4,22 +4,22 @@
  *
  * PHP Version PHP 5.3.10
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Adapter\Xml\ResultSet
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-namespace MphpFlickrPhotoGetSizes\Adapter\Xml\ResultSet;
+namespace MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet;
 
 /**
  * ResultSetAdapter
  *
- * @category    MphpFlickrPhotoGetSizes
- * @package     MphpFlickrPhotoGetSizes
- * @subpackage  MphpFlickrPhotoGetSizes\Adapter\Xml\ResultSet
+ * @category    MphpFlickrPhotosGetSizes
+ * @package     MphpFlickrPhotosGetSizes
+ * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-class ResultSetAdapter extends \MphpFlickrBase\Adapter\Xml\ResultSet\AbstractResultSetAdapter implements \MphpFlickrPhotoGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface
+class ResultSetAdapter extends \MphpFlickrBase\Adapter\Xml\ResultSet\AbstractResultSetAdapter implements \MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface
 {
     
     protected $canBlog;

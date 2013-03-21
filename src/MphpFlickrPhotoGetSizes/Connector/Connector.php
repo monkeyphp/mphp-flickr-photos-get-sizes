@@ -4,19 +4,19 @@
  *
  * PHP Version  PHP 5.3.10
  *
- * @category   MphpFlickrPhotoGetSizes
- * @package    MphpFlickrPhotoGetSizes
- * @subpackage MphpFlickrPhotoGetSizes\Connector
+ * @category   MphpFlickrPhotosGetSizes
+ * @package    MphpFlickrPhotosGetSizes
+ * @subpackage MphpFlickrPhotosGetSizes\Connector
  * @author     David White [monkeyphp] <git@monkeyphp.com>
  */
-namespace MphpFlickrPhotoGetSizes\Connector;
+namespace MphpFlickrPhotosGetSizes\Connector;
 
 /**
  * Connector
  *
- * @category   MphpFlickrPhotoGetSizes
- * @package    MphpFlickrPhotoGetSizes
- * @subpackage MphpFlickrPhotoGetSizes\Connector
+ * @category   MphpFlickrPhotosGetSizes
+ * @package    MphpFlickrPhotosGetSizes
+ * @subpackage MphpFlickrPhotosGetSizes\Connector
  * @author     David White [monkeyphp] <git@monkeyphp.com>
  */
 class Connector extends \MphpFlickrBase\Connector\AbstractConnector
@@ -34,7 +34,7 @@ class Connector extends \MphpFlickrBase\Connector\AbstractConnector
      *
      * @var string
      */
-    protected $resultAdapterClass = 'MphpFlickrPhotoGetSizes\Adapter\ResultSet\ResultSet';
+    protected $resultAdapterClass = 'MphpFlickrPhotosGetSizes\Adapter\ResultSet\ResultSet';
 
     /**
      *
