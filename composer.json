@@ -1,8 +1,8 @@
 {
-    "name": "monkeyphp/mphp-flickr-photo-get-sizes",
+    "name": "monkeyphp/mphp-flickr-photos-get-sizes",
     "description": "Package for accessing the Flickr flickr.photos.getSizes api",
     "type": "library",
-    "homepage": "https://github.com/monkeyphp/mphp-flickr-photo-get-sizes",
+    "homepage": "https://github.com/monkeyphp/mphp-flickr-photos-get-sizes",
     "license": "MIT",
     "keywords": [
         "Flickr",
