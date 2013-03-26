@@ -21,17 +21,22 @@ namespace MphpFlickrPhotosGetSizes\Result;
  */
 class Result extends \MphpFlickrBase\Result\AbstractResult
 {
-    
+
     /**
-     * 
-     * @param \MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface $adapter
-     * @return \MphpFlickrPhotosGetSizes\Result\Result
+     *
+     * @param \MphpFlickrBase\Adapter\Interfaces\Result\ResultAdapterInterface $adapter
+     *
+     * @throws \InvalidArgumentException
+     * @return type
      */
-    public function setAdapter(\MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface $adapter) {
-        parent::setAdapter($adapter);
-        return $this;
+    public function setAdapter(\MphpFlickrBase\Adapter\Interfaces\Result\ResultAdapterInterface $adapter)
+    {
+        if ($adapter instanceof \MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface) {
+            return parent::setAdapter($adapter);
+        }
+        throw new \InvalidArgumentException('Invalid adapter supplied');
     }
-    
+
     /**
      * Return the label
      *
@@ -49,7 +54,9 @@ class Result extends \MphpFlickrBase\Result\AbstractResult
      */
     public function getWidth()
     {
-        return $this->getAdapter()->getWidth();
+        return ($width = $this->getAdapter()->getWidth())
+            ? (integer)$width
+            : null;
     }
 
     /**
@@ -59,7 +66,9 @@ class Result extends \MphpFlickrBase\Result\AbstractResult
      */
     public function getHeight()
     {
-        return $this->getAdapter()->getHeight();
+        return ($height = $this->getAdapter()->getHeight())
+            ? (integer)$height
+            : null;
     }
 
     /**
@@ -91,5 +100,5 @@ class Result extends \MphpFlickrBase\Result\AbstractResult
     {
         return $this->getAdapter()->getMedia();
     }
-    
+
 }

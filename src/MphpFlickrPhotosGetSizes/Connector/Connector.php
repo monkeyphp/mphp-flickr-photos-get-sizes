@@ -48,4 +48,5 @@ class Connector extends \MphpFlickrBase\Connector\AbstractConnector
 
         return $parameters;
     }
+    
 }
