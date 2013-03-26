@@ -24,20 +24,6 @@ use MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface;
  */
 class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterface
 {
-    
-    /**
-     * The label of the Size
-     *
-     * @var string|null
-     */
-    protected $label;
-
-    /**
-     * The width of the Size
-     *
-     * @var string|null
-     */
-    protected $width;
 
     /**
      * The height of the Size
@@ -47,11 +33,57 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     protected $height;
 
     /**
+     * DOMXPath query string used to retrieve the height value from
+     * the results
+     *
+     * @var string
+     */
+    protected $heightQuery = '/size/@height';
+
+    /**
+     * The label of the Size
+     *
+     * @var string|null
+     */
+    protected $label;
+
+    /**
+     * DOMXPath query string used to retrieve the label value from the
+     * results
+     *
+     * @var string
+     */
+    protected $labelQuery = '/size/@label';
+
+    /**
+     * The medai of the Size
+     *
+     * @var string|null
+     */
+    protected $media;
+
+    /**
+     * DOMXPath query string used to retrieve the media value from
+     * the results
+     *
+     * @var string
+     */
+    protected $mediaQuery = '/size/@media';
+
+    /**
      * The source of the Size
      *
      * @var string|null
      */
     protected $source;
+
+    /**
+     * DOMXPath query string used to retrieve the source value
+     * from the results
+     *
+     * @var string
+     */
+    protected $sourceQuery = '/size/@source';
 
     /**
      * The url of the Size
@@ -61,11 +93,33 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     protected $url;
 
     /**
-     * The medai of the Size
+     * DOMXPath query string used to retrieve the url value from
+     * the results
+     *
+     * @var string
+     */
+    protected $urlQuery = '/size/@url';
+
+    /**
+     * The width of the Size
      *
      * @var string|null
      */
-    protected $media;
+    protected $width;
+
+    /**
+     * DOMXPath query string used to retrieve the width value from
+     * the results
+     *
+     * @var string
+     */
+    protected $widthQuery = '/size/@width';
+
+
+
+
+
+
 
     const ATTRIBUTE_HEIGHT = 'height';
 
@@ -87,9 +141,16 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     public function getHeight()
     {
         if (! isset($this->height)) {
-            $this->height = ($this->getDomElement()->getAttribute(self::ATTRIBUTE_HEIGHT));
+            $this->height = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getHeightQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->height;
+    }
+
+    protected function getHeightQuery()
+    {
+        return $this->heightQuery;
     }
 
     /**
@@ -100,9 +161,16 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     public function getLabel()
     {
       if (! isset($this->label)) {
-            $this->label = ($this->getDomElement()->getAttribute(self::ATTRIBUTE_LABEL));
+            $this->label = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getLabelQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->label;
+    }
+
+    protected function getLabelQuery()
+    {
+        return $this->labelQuery;
     }
 
     /**
@@ -113,9 +181,16 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     public function getMedia()
     {
         if (! isset($this->media)) {
-            $this->media = ($this->getDomElement()->getAttribute(self::ATTRIBUTE_MEDIA));
+            $this->media = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getMediaQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->media;
+    }
+
+    protected function getMediaQuery()
+    {
+        return $this->mediaQuery;
     }
 
     /**
@@ -126,10 +201,18 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     public function getSource()
     {
         if (! isset($this->source)) {
-            $this->source = ($this->getDomElement()->getAttribute(self::ATTRIBUTE_SOURCE));
+            $this->source = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getSourceQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->source;
     }
+
+    protected function getSourceQuery()
+    {
+        return $this->sourceQuery;
+    }
+
 
     /**
      * Return the url of the Size
@@ -139,10 +222,18 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     public function getUrl()
     {
       if (! isset($this->url)) {
-            $this->url = ($this->getDomElement()->getAttribute(self::ATTRIBUTE_URL));
+            $this->url = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getUrlQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->url;
     }
+
+    protected function getUrlQuery()
+    {
+        return $this->urlQuery;
+    }
+
 
     /**
      * Return the width of the Size
@@ -152,9 +243,16 @@ class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterf
     public function getWidth()
     {
         if (! isset($this->width)) {
-            $this->width = ($this->getDomElement()->getAttribute(self::ATTRIBUTE_WIDTH));
+            $this->width = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getWidthQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->width;
     }
-    
+
+    protected function getWidthQuery()
+    {
+        return $this->widthQuery;
+    }
+
 }
