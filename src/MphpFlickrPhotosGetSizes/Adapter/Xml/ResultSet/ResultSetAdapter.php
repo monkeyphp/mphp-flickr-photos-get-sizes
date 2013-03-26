@@ -21,58 +21,142 @@ namespace MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet;
  */
 class ResultSetAdapter extends \MphpFlickrBase\Adapter\Xml\ResultSet\AbstractResultSetAdapter implements \MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface
 {
-    
+
+    /**
+     * The can blog value
+     *
+     * @var string|null
+     */
     protected $canBlog;
 
-    protected $canDownload;
-
-    protected $canDownloadQuery = '/rsp/sizes/@candownload';
-
-    protected $domNodeListQuery = '/rsp/sizes/size';
-    
-    protected function getCanDownloadQuery()
-    {
-        return $this->canDownloadQuery;
-    }
-    
-    protected $canPrint;
-
-    protected $canPrintQuery  = '/rsp/sizes/@canprint';
-
-    protected function getCanPrintQuery()
-    {
-        return $this->canPrintQuery;
-    }
-
+    /**
+     * DOMXPath query string used to retrieve the can blog value from the
+     * results
+     *
+     * @var string
+     */
     protected $canBlogQuery = '/rsp/sizes/@canblog';
 
+    /**
+     * Can download value
+     *
+     * @var string|null
+     */
+    protected $canDownload;
+
+    /**
+     * DOMXPath query string used to retrieve the can download value from the
+     * results
+     *
+     * @var string
+     */
+    protected $canDownloadQuery = '/rsp/sizes/@candownload';
+
+    /**
+     * Can print value
+     *
+     * @var string|null
+     */
+    protected $canPrint;
+
+    /**
+     * DOMXPath query string used to retrieve the can print value from the
+     * results
+     *
+     * @var string
+     */
+    protected $canPrintQuery  = '/rsp/sizes/@canprint';
+
+    /**
+     * DOMXPath query string used to retrieve the data for each ResultAdapter
+     *
+     * @var string
+     */
+    protected $resultDomNodeListQuery = '/rsp/sizes/size';
+
+    /**
+     * The class returned during each iteration of the ResultSet
+     *
+     * @var string
+     */
+    protected $resultAdapterClass = 'MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter';
+
+    /**
+     * Return the can blog value from the results
+     *
+     * @return string|null
+     */
+    public function getCanBlog()
+    {
+        if (! isset($this->canBlog)) {
+            $this->canBlog = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getCanBlogQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
+        }
+        return $this->canBlog;
+    }
+
+    /**
+     * Return the DOMXPath query string used to retrieve the can blog value from
+     * the results
+     *
+     * @return string
+     */
     protected function getCanBlogQuery()
     {
         return $this->canBlogQuery;
     }
 
-    public function getCanBlog()
-    {
-        if (! isset($this->canBlog)) {
-            $this->canBlog = $this->getDomXPath($this->getDomDocument())->query($this->getCanBlogQuery())->item(0)->value;
-        }
-        return $this->canBlog;
-    }
-
+    /**
+     * Return the can download value from the results
+     *
+     * @return string|null
+     */
     public function getCanDownload()
     {
         if (! isset($this->canDownload)) {
-            $this->canDownload = $this->getDomXPath($this->getDomDocument())->query($this->getCanDownloadQuery())->item(0)->value;
+            $this->canDownload = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getCanDownloadQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->canDownload;
     }
 
+    /**
+     * DOMXPath query string used to retrieve the can download value from the
+     * results
+     *
+     * @return string
+     */
+    protected function getCanDownloadQuery()
+    {
+        return $this->canDownloadQuery;
+    }
+
+    /**
+     * Return the can print value from the results
+     *
+     * @return string|null
+     */
     public function getCanPrint()
     {
         if (! isset($this->canPrint)) {
-            $this->canPrint = $this->getDomXPath($this->getDomDocument())->query($this->getCanPrintQuery())->item(0)->value;
+            $this->canPrint = (($nodeList = $this->getDomXPath($this->getDomDocument())->query($this->getCanPrintQuery())) && $nodeList->length)
+                ? $nodeList->item(0)->value
+                : null;
         }
         return $this->canPrint;
     }
-    
+
+    /**
+     * Return the DOMXPath query string used to retrieve the can print value
+     * from the results
+     *
+     * @return string
+     */
+    protected function getCanPrintQuery()
+    {
+        return $this->canPrintQuery;
+    }
+
 }
