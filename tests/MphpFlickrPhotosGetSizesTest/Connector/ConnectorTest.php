@@ -40,4 +40,33 @@ class ConnectorTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $preparedParameters);
     }
 
+    /**
+     * @expectedException \MphpFlickrBase\Exception\MissingParameterException
+     */
+    public function testPrepareParametersNoPhotoIdThrowsMissingParameterException()
+    {
+        $connector = new \MphpFlickrPhotosGetSizes\Connector\Connector('01423');
+        $parameters = array();
+
+        $reflectionObject = new \ReflectionObject($connector);
+        $reflectionMethod = $reflectionObject->getMethod('prepareParameters');
+        $reflectionMethod->setAccessible(true);
+
+        $reflectionMethod->invoke($connector, $parameters);
+    }
+
+    /**
+     * @expectedException \MphpFlickrBase\Exception\InvalidParameterException
+     */
+    public function testPrepareParametersInvalidPhotoIdThrowsInvalidParameterException()
+    {
+        $connector = new \MphpFlickrPhotosGetSizes\Connector\Connector('01423');
+        $parameters = array('photo_id' => new \stdClass());
+
+        $reflectionObject = new \ReflectionObject($connector);
+        $reflectionMethod = $reflectionObject->getMethod('prepareParameters');
+        $reflectionMethod->setAccessible(true);
+
+        $reflectionMethod->invoke($connector, $parameters);
+    }
 }

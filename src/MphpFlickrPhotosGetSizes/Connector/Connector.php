@@ -70,7 +70,7 @@ class Connector extends \MphpFlickrBase\Connector\AbstractConnector
         $parameters = parent::prepareParameters($parameters);
 
         // validate the photo_id value
-        if (empty($parameters[$this->getArgumentPhotoId()])) {
+        if (! array_key_exists($this->getArgumentPhotoId(), $parameters)) {
             throw new \MphpFlickrBase\Exception\MissingParameterException($this->getArgumentPhotoId() . ' parameter is required');
         }
         if (false === $this->validatePhotoId($parameters[$this->getArgumentPhotoId()])) {
