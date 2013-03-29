@@ -19,9 +19,9 @@ namespace MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet;
  * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-interface ResultSetAdapterInterface 
+interface ResultSetAdapterInterface
 {
-    
+
     /**
      * Return if the Photo can be blogged
      *
