@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultSet.php
+ * ResultTest.php
  *
  * PHP Version PHP 5.3.10
  *

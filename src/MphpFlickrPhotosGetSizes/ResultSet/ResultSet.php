@@ -18,51 +18,61 @@ namespace MphpFlickrPhotosGetSizes\ResultSet;
  * @package     MphpFlickrPhotosGetSizes
  * @subpackage  MphpFlickrPhotosGetSizes\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
- * 
+ *
  * @property-read \MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface $adapter Adapter class
  */
 class ResultSet extends \MphpFlickrBase\ResultSet\AbstractResultSet
 {
-    
+
     /**
-     * 
-     * @param \MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface $adapter
-     * 
-     * @return \MphpFlickrPhotosGetSizes\ResultSet\ResultSet
+     *
+     * @param \MphpFlickrBase\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface $adapter
+     *
+     * @throws \InvalidArgumentException
+     * @return type
      */
-    public function setAdapter(\MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface $adapter) {
-        parent::setAdapter($adapter);
-        return $this;
+    public function setAdapter(\MphpFlickrBase\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface $adapter)
+    {
+        if ($adapter instanceof \MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface ) {
+            return parent::setAdapter($adapter);
+        }
+        throw new \InvalidArgumentException('Invalid adapter supplied');
     }
-    
+
     /**
      * Return if the Photo can be blogged
      *
-     * @return string|null
+     * @return boolean|null
      */
     public function getCanBlog()
     {
-        return $this->getAdapter()->getCanBlog();
+        return (null !== ($canBlog = $this->getAdapter()->getCanBlog()))
+            ? (boolean)$canBlog
+            : null;
     }
 
     /**
      * Return if the Photo can be printed
      *
-     * @return string|null
+     * @return boolean|null
      */
     public function getCanPrint()
     {
-        return $this->getAdapter()->getCanPrint();
+        return (null !== ($canPrint = $this->getAdapter()->getCanPrint()))
+            ? (boolean)$canPrint
+            : null;
     }
 
     /**
      * Return if the Photo can be downloaded
      *
-     * @return string|null
+     * @return boolean|null
      */
     public function getCanDownload()
     {
-        return $this->getAdapter()->getCanDownload();
+        return (null !== ($canDownload = $this->getAdapter()->getCanDownload()))
+            ? (boolean)$canDownload
+            : null;
     }
-    
+
 }
