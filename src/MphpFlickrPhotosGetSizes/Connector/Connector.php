@@ -37,16 +37,60 @@ class Connector extends \MphpFlickrBase\Connector\AbstractConnector
     protected $resultAdapterClass = 'MphpFlickrPhotosGetSizes\Adapter\ResultSet\ResultSet';
 
     /**
+     * The url parameter for photo id
      *
-     * @param array $parameters The array of parameters to call the Flickr api
+     * @var string
+     */
+    protected $argumentPhotoId = 'photo_id';
+
+    /**
+     * Return the photo argument string
      *
+     * @return string
+     */
+    protected function getArgumentPhotoId()
+    {
+        return $this->argumentPhotoId;
+    }
+
+    /**
+     * The flickr.photos.getSizes method required an api_key, a method and a photo_id
+     * value.
+     *
+     * {@link http://www.flickr.com/services/api/flickr.photos.getSizes.html}
+     *
+     * @param array $parameters The array of parameters to call the Flickr api with
+     *
+     * @throws \MphpFlickrBase\Exception\MissingParameterException
      * @return array
      */
     protected function prepareParameters($parameters = array())
     {
+        // call parent prepare parameters
         $parameters = parent::prepareParameters($parameters);
 
+        // validate the photo_id value
+        if (empty($parameters[$this->getArgumentPhotoId()])) {
+            throw new \MphpFlickrBase\Exception\MissingParameterException($this->getArgumentPhotoId() . ' parameter is required');
+        }
+        if (false === $this->validatePhotoId($parameters[$this->getArgumentPhotoId()])) {
+            throw new \MphpFlickrBase\Exception\InvalidParameterException();
+        }
+
+        // return the parameters
         return $parameters;
     }
-    
+
+    /**
+     * Validate the supplied photo id value
+     *
+     * @param mixed $photoId
+     *
+     * @return boolean
+     */
+    protected function validatePhotoId($value)
+    {
+        return (is_string($value));
+    }
+
 }
