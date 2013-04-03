@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultAdapterTest.php
+ * SizeResultAdapterTest.php
  *
  * PHP Version PHP 5.3.10
  *
@@ -12,14 +12,14 @@
 namespace MphpFlickrPhotosGetSizesTest\Adapter\Xml\Result;
 
 /**
- * ResultAdapterTest
+ * SizeResultAdapterTest
  *
  * @category    MphpFlickrPhotosGetSizesTest
  * @package     MphpFlickrPhotosGetSizesTest
  * @subpackage  MphpFlickrPhotosGetSizesTest\Adapter\Xml\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-class ResultAdapterTest extends \PHPUnit_Framework_TestCase
+class SizeResultAdapterTest extends \PHPUnit_Framework_TestCase
 {
 
     public function test__construct()
