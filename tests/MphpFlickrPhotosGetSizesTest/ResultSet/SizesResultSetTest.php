@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultSetTest.php
+ * SizesResultSetTest.php
  *
  * PHP Version PHP 5.3.10
  *
@@ -14,14 +14,14 @@ namespace MphpFlickrPhotosGetSizesTest\ResultSet;
 use PHPUnit_Framework_TestCase;
 
 /**
- * ResultSetTest
+ * SizesResultSetTest
  *
  * @category    MphpFlickrPhotosGetSizesTest
  * @package     MphpFlickrPhotosGetSizesTest
  * @subpackage  MphpFlickrPhotosGetSizesTest\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-class ResultSetTest extends PHPUnit_Framework_TestCase
+class SizesResultSetTest extends PHPUnit_Framework_TestCase
 {
 
     public function test__construct()
