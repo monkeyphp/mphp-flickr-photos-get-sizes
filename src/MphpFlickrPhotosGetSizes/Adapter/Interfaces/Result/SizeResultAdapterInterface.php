@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultAdapterInterface.php
+ * SizeResultAdapterInterface.php
  *
  * PHP Version PHP 5.3.10
  *
@@ -12,16 +12,16 @@
 namespace MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result;
 
 /**
- * ResultAdapterInterface
+ * SizeResultAdapterInterface
  *
  * @category    MphpFlickrPhotosGetSizes
  * @package     MphpFlickrPhotosGetSizes
  * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-interface ResultAdapterInterface 
+interface SizeResultAdapterInterface
 {
-    
+
     /**
      * Return the label
      *
@@ -63,5 +63,5 @@ interface ResultAdapterInterface
      * @return string|null
      */
     public function getMedia();
-    
+
 }

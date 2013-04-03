@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultSetAdapterInterface.php
+ * SizesResultSetAdapterInterface.php
  *
  * PHP Version PHP 5.3.10
  *
@@ -12,14 +12,14 @@
 namespace MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet;
 
 /**
- * ResultSetAdapterInterface
+ * SizesResultSetAdapterInterface
  *
  * @category    MphpFlickrPhotosGetSizes
  * @package     MphpFlickrPhotosGetSizes
  * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-interface ResultSetAdapterInterface
+interface SizesResultSetAdapterInterface
 {
 
     /**
@@ -42,5 +42,5 @@ interface ResultSetAdapterInterface
      * @return string|null
      */
     public function getCanDownload();
-    
+
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultAdapter.php
+ * SizeResultAdapter.php
  *
  * PHP Version PHP 5.3.10
  *
@@ -12,17 +12,17 @@
 namespace MphpFlickrPhotosGetSizes\Adapter\Xml\Result;
 
 use MphpFlickrBase\Adapter\Xml\Result\AbstractResultAdapter;
-use MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface;
+use MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\SizeResultAdapterInterface;
 
 /**
- * ResultAdapter
+ * SizeResultAdapter
  *
  * @category    MphpFlickrPhotosGetSizes
  * @package     MphpFlickrPhotosGetSizes
  * @subpackage  MphpFlickrPhotosGetSizes\Adapter\Xml\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-class ResultAdapter extends AbstractResultAdapter implements ResultAdapterInterface
+class SizeResultAdapter extends AbstractResultAdapter implements SizeResultAdapterInterface
 {
 
     /**
