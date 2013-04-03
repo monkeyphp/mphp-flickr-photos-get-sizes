@@ -26,9 +26,9 @@ class ResultSetTest extends PHPUnit_Framework_TestCase
 
     public function test__construct()
     {
-        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\ResultSet($this->getResultSetAdapter());
+        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\SizesResultSet($this->getResultSetAdapter());
     }
-    
+
     /**
      * @expectedException InvalidArgumentException
      */
@@ -36,26 +36,26 @@ class ResultSetTest extends PHPUnit_Framework_TestCase
     {
         $adapter = $this->getMock('\MphpFlickrBase\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface');
         $this->assertInstanceOf('\MphpFlickrBase\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface', $adapter);
-        $this->assertNotInstanceOf('\MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\ResultSetAdapterInterface', $adapter);
+        $this->assertNotInstanceOf('\MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\SizesResultSetAdapterInterface', $adapter);
 
-        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\ResultSet($adapter);
+        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\SizesResultSet($adapter);
     }
 
     public function testGetCanBlog()
     {
-        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\ResultSet($this->getResultSetAdapter());
+        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\SizesResultSet($this->getResultSetAdapter());
         $this->assertFalse($resultSet->getCanBlog());
     }
 
     public function testGetCanPrint()
     {
-        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\ResultSet($this->getResultSetAdapter());
+        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\SizesResultSet($this->getResultSetAdapter());
         $this->assertFalse($resultSet->getCanPrint());
     }
 
     public function testGetCanDownload()
     {
-        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\ResultSet($this->getResultSetAdapter());
+        $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\SizesResultSet($this->getResultSetAdapter());
         $this->assertTrue($resultSet->getCanDownload());
     }
 
@@ -64,7 +64,7 @@ class ResultSetTest extends PHPUnit_Framework_TestCase
      */
     protected function getResultSetAdapter()
     {
-        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\ResultSetAdapter($this->getResults(), $this->getParameters());
+        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\SizesResultSetAdapter($this->getResults(), $this->getParameters());
         return $resultSetAdapter;
     }
 

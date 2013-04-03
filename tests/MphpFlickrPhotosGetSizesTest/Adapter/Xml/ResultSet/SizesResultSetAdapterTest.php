@@ -21,7 +21,7 @@ use PHPUnit_Framework_TestCase;
  * @subpackage  MphpFlickrPhotosGetSizesTest\Adapter\Xml\ResultSet
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-class ResultSetAdapterTest extends PHPUnit_Framework_TestCase
+class SizesResultSetAdapterTest extends PHPUnit_Framework_TestCase
 {
 
     public function test__construct()
@@ -29,7 +29,7 @@ class ResultSetAdapterTest extends PHPUnit_Framework_TestCase
         $results = $this->getResults();
         $parameters = $this->getParameters();
 
-        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\ResultSetAdapter($results, $parameters);
+        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\SizesResultSetAdapter($results, $parameters);
 
         $this->assertSame($results, $resultSetAdapter->getResults());
         $this->assertSame($parameters, $resultSetAdapter->getParameters());
@@ -40,7 +40,7 @@ class ResultSetAdapterTest extends PHPUnit_Framework_TestCase
         $results = $this->getResults();
         $parameters = $this->getParameters();
 
-        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\ResultSetAdapter($results, $parameters);
+        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\SizesResultSetAdapter($results, $parameters);
 
         $this->assertSame('0', $resultSetAdapter->getCanBlog());
     }
@@ -50,7 +50,7 @@ class ResultSetAdapterTest extends PHPUnit_Framework_TestCase
         $results = $this->getResults();
         $parameters = $this->getParameters();
 
-        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\ResultSetAdapter($results, $parameters);
+        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\SizesResultSetAdapter($results, $parameters);
 
         $this->assertSame('1', $resultSetAdapter->getCanDownload());
     }
@@ -61,10 +61,10 @@ class ResultSetAdapterTest extends PHPUnit_Framework_TestCase
         $results = $this->getResults();
         $parameters = $this->getParameters();
 
-        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\ResultSetAdapter($results, $parameters);
+        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\SizesResultSetAdapter($results, $parameters);
 
         foreach ($resultSetAdapter as $resultAdapter) {
-            $this->assertInstanceOf('MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter', $resultAdapter);
+            $this->assertInstanceOf('MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter', $resultAdapter);
         }
     }
 
@@ -73,7 +73,7 @@ class ResultSetAdapterTest extends PHPUnit_Framework_TestCase
         $results = $this->getResults();
         $parameters = $this->getParameters();
 
-        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\ResultSetAdapter($results, $parameters);
+        $resultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\SizesResultSetAdapter($results, $parameters);
 
         $this->assertSame('0', $resultSetAdapter->getCanPrint());
     }

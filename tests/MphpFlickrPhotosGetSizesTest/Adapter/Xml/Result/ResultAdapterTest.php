@@ -26,42 +26,42 @@ class ResultAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $results = $this->getResults();
         $parameters = $this->getParameters();
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($results, $parameters);
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($results, $parameters);
     }
 
     public function testGetHeight()
     {
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($this->getResults(), $this->getParameters());
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
         $this->assertSame('75', $resultAdapter->getHeight());
     }
 
     public function testGetLabel()
     {
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($this->getResults(), $this->getParameters());
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
         $this->assertSame('Square', $resultAdapter->getLabel());
     }
 
     public function testGetMedia()
     {
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($this->getResults(), $this->getParameters());
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
         $this->assertSame('photo', $resultAdapter->getMedia());
     }
 
     public function testGetSource()
     {
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($this->getResults(), $this->getParameters());
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
         $this->assertSame('http://farm9.staticflickr.com/8530/8558949624_5d509a7677_s.jpg', $resultAdapter->getSource());
     }
 
     public function testGetUrl()
     {
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($this->getResults(), $this->getParameters());
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
         $this->assertSame('http://www.flickr.com/photos/65448995@N05/8558949624/sizes/sq/', $resultAdapter->getUrl());
     }
 
     public function testGetWidth()
     {
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($this->getResults(), $this->getParameters());
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
         $this->assertSame('75', $resultAdapter->getWidth());
     }
 

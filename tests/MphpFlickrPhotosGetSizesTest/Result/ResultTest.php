@@ -30,7 +30,7 @@ class ResultTest extends PHPUnit_Framework_TestCase
     public function test__construct()
     {
         $resultAdapter = $this->getResultAdapter();
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($resultAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($resultAdapter);
 
         $this->assertSame($resultAdapter, $result->getAdapter());
     }
@@ -41,13 +41,13 @@ class ResultTest extends PHPUnit_Framework_TestCase
     public function test__constructThrowsInvalidArgumentException()
     {
         $mockAdapter = $this->getMock('MphpFlickrBase\Adapter\Interfaces\Result\ResultAdapterInterface');
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($mockAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($mockAdapter);
     }
 
     public function testGetLabel()
     {
         $resultAdapter = $this->getResultAdapter();
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($resultAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($resultAdapter);
 
         $this->assertSame($result->getLabel(), $resultAdapter->getLabel());
     }
@@ -55,7 +55,7 @@ class ResultTest extends PHPUnit_Framework_TestCase
     public function testGetWidth()
     {
         $resultAdapter = $this->getResultAdapter();
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($resultAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($resultAdapter);
 
         $this->assertEquals($result->getWidth(), $resultAdapter->getWidth());
     }
@@ -63,7 +63,7 @@ class ResultTest extends PHPUnit_Framework_TestCase
     public function testGetHeight()
     {
         $resultAdapter = $this->getResultAdapter();
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($resultAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($resultAdapter);
 
         $this->assertEquals($result->getHeight(), $resultAdapter->getHeight());
     }
@@ -71,7 +71,7 @@ class ResultTest extends PHPUnit_Framework_TestCase
     public function testGetMedia()
     {
         $resultAdapter = $this->getResultAdapter();
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($resultAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($resultAdapter);
 
         $this->assertSame($result->getMedia(), $resultAdapter->getMedia());
     }
@@ -79,7 +79,7 @@ class ResultTest extends PHPUnit_Framework_TestCase
     public function testGetSource()
     {
         $resultAdapter = $this->getResultAdapter();
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($resultAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($resultAdapter);
 
         $this->assertSame($result->getSource(), $resultAdapter->getSource());
     }
@@ -87,14 +87,14 @@ class ResultTest extends PHPUnit_Framework_TestCase
     public function testGetUrl()
     {
         $resultAdapter = $this->getResultAdapter();
-        $result = new \MphpFlickrPhotosGetSizes\Result\Result($resultAdapter);
+        $result = new \MphpFlickrPhotosGetSizes\Result\SizeResult($resultAdapter);
 
         $this->assertSame($result->getUrl(), $resultAdapter->getUrl());
     }
 
     protected function getResultAdapter()
     {
-        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter($this->getResults(), $this->getParameters());
+        $resultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
         return $resultAdapter;
     }
 
