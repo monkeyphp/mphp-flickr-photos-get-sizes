@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultSet.php
+ * SizeResult.php
  *
  * PHP Version PHP 5.3.10
  *
@@ -12,7 +12,7 @@
 namespace MphpFlickrPhotosGetSizes\Result;
 
 /**
- * Result
+ * SizeResult
  *
  * @category    MphpFlickrPhotosGetSizes
  * @package     MphpFlickrPhotosGetSizes
