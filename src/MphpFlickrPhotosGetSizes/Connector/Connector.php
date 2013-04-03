@@ -23,6 +23,14 @@ class Connector extends \MphpFlickrBase\Connector\AbstractConnector
 {
 
     /**
+     * AdapterFactoryInterface instance classname
+     *
+     * @var string
+     */
+    protected $adapterFactoryClassname = 'MphpFlickrPhotosGetSizes\Adapter\Factory\AdapterFactory';
+
+
+    /**
      * The method name that this Connector will connect to
      *
      * @var string
