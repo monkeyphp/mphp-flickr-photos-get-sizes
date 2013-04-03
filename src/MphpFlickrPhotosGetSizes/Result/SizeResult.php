@@ -19,7 +19,7 @@ namespace MphpFlickrPhotosGetSizes\Result;
  * @subpackage  MphpFlickrPhotosGetSizes\Result
  * @author      David White [monkeyphp] <git@monkeyphp.com>
  */
-class Result extends \MphpFlickrBase\Result\AbstractResult
+class SizeResult extends \MphpFlickrBase\Result\AbstractResult
 {
 
     /**
@@ -31,7 +31,7 @@ class Result extends \MphpFlickrBase\Result\AbstractResult
      */
     public function setAdapter(\MphpFlickrBase\Adapter\Interfaces\Result\ResultAdapterInterface $adapter)
     {
-        if ($adapter instanceof \MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\ResultAdapterInterface) {
+        if ($adapter instanceof \MphpFlickrPhotosGetSizes\Adapter\Interfaces\Result\SizeResultAdapterInterface) {
             return parent::setAdapter($adapter);
         }
         throw new \InvalidArgumentException('Invalid adapter supplied');
