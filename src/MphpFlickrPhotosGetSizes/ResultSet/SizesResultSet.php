@@ -1,6 +1,6 @@
 <?php
 /**
- * ResultSet.php
+ * SizeResultSet.php
  *
  * PHP Version PHP 5.3.10
  *
@@ -12,7 +12,7 @@
 namespace MphpFlickrPhotosGetSizes\ResultSet;
 
 /**
- * ResultSet
+ * SizeResultSet
  *
  * @category    MphpFlickrPhotosGetSizes
  * @package     MphpFlickrPhotosGetSizes
@@ -21,7 +21,7 @@ namespace MphpFlickrPhotosGetSizes\ResultSet;
  *
  * @property-read \MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\SizesResultSetAdapterInterface $adapter Adapter class
  */
-class SizeResultSet extends \MphpFlickrBase\ResultSet\AbstractResultSet
+class SizesResultSet extends \MphpFlickrBase\ResultSet\AbstractResultSet
 {
 
     /**
