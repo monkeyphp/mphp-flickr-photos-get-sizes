@@ -69,4 +69,52 @@ class ConnectorTest extends \PHPUnit_Framework_TestCase
 
         $reflectionMethod->invoke($connector, $parameters);
     }
+
+    /**
+     * @group dispatch
+     */
+    public function testDispatch()
+    {
+        $body = $this->getBody();
+
+        // create a mock http response
+        $mockHttpResponse = $this->getMock('Zend\Http\Response', array('getBody'));
+        $mockHttpResponse->expects($this->once())
+                ->method('getBody')
+                ->will($this->returnValue($body));
+
+        // create a mock http client
+        $mockHttpClient = $this->getMock('Zend\Http\Client', array('dispatch'));
+        $mockHttpClient->expects($this->once())
+                ->method('dispatch')
+                ->with($this->anything())
+                ->will($this->returnValue($mockHttpResponse));
+
+        $connector = new \MphpFlickrPhotosGetSizes\Connector\Connector('01423', $mockHttpClient);
+        $parameters = array('photo_id' => '8558949624');
+
+        $adapter = $connector->dispatch($parameters);
+
+        $this->assertInstanceOf('MphpFlickrPhotosGetSizes\Adapter\Xml\ResultSet\SizesResultSetAdapter', $adapter);
+
+        $this->assertSame('0', $adapter->getCanBlog());
+        $this->assertSame('0', $adapter->getCanPrint());
+        $this->assertSame('1', $adapter->getCanDownload());
+
+        foreach ($adapter as $sizeResultAdapter) {
+            $this->assertInstanceOf('MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter', $sizeResultAdapter);
+//            print $sizeResultAdapter->getLabel();
+//            print $sizeResultAdapter->getMedia();
+//            print $sizeResultAdapter->getHeight();
+//            print $sizeResultAdapter->getSource();
+//            print $sizeResultAdapter->getUrl();
+//            print $sizeResultAdapter->getWidth();
+        }
+    }
+
+    protected function getBody()
+    {
+        return file_get_contents('data/resultset.xml');
+    }
+
 }
