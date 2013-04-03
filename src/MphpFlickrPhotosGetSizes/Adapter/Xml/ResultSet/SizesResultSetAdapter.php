@@ -79,7 +79,7 @@ class SizesResultSetAdapter extends \MphpFlickrBase\Adapter\Xml\ResultSet\Abstra
      *
      * @var string
      */
-    protected $resultAdapterClass = 'MphpFlickrPhotosGetSizes\Adapter\Xml\Result\ResultAdapter';
+    protected $resultAdapterClass = 'MphpFlickrPhotosGetSizes\Adapter\Xml\Result\SizeResultAdapter';
 
     /**
      * Return the can blog value from the results
