@@ -30,11 +30,11 @@ class Connector extends \MphpFlickrBase\Connector\AbstractConnector
     protected $method = 'flickr.photos.getSizes';
 
     /**
-     * The name of the adapter class that a call to dispatch should return
+     * The name of the result class that a call to dispatch should return
      *
      * @var string
      */
-    protected $resultAdapterClass = 'MphpFlickrPhotosGetSizes\Adapter\ResultSet\ResultSet';
+    protected $resultClass = 'MphpFlickrPhotosGetSizes\ResultSet\SizesResultSet';
 
     /**
      * The url parameter for photo id
