@@ -32,6 +32,12 @@ class SizeResultAdapterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Square', $jsonSizeResultAdapter->getLabel());
     }
 
+    public function testGetMedia()
+    {
+        $jsonSizeResultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Json\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
+        $this->assertEquals('photo', $jsonSizeResultAdapter->getMedia());
+    }
+
     protected function getParameters()
     {
         return array();
