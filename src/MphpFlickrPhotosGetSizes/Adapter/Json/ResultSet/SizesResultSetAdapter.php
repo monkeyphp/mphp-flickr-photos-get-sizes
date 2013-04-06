@@ -116,9 +116,28 @@ class SizesResultSetAdapter extends \MphpFlickrBase\Adapter\Json\ResultSet\Abstr
         return $this->canPrint;
     }
 
+    /**
+     * Return an array containg the data (sets) to create instances of Result from
+     *
+     * $resultList property defined in abstract
+     *
+     * @return array
+     */
     protected function getResultList()
     {
+        if (! isset($this->resultList)) {
 
+            $this->resultList = array();
+
+            $decodedResults = $this->getDecodedResults();
+
+            if (array_key_exists('sizes', $decodedResults) && ((boolean)$sizes = $decodedResults['sizes']) && (is_array($sizes))) {
+                $this->resultList = ( array_key_exists('size', $sizes) && is_array($sizes['size']))
+                    ? $sizes['size']
+                    : array();
+            }
+        }
+        return $this->resultList;
     }
 
 }
