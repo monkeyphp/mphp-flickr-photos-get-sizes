@@ -73,6 +73,17 @@ class SizesResultSetAdapterTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('0', $jsonResultSetAdapter->getCanPrint());
     }
 
+    public function testIterate()
+    {
+        $results = $this->getResults();
+        $parameters = $this->getParameters();
+        $jsonResultSetAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Json\ResultSet\SizesResultSetAdapter($results, $parameters);
+
+        foreach ($jsonResultSetAdapter as $jsonResultAdapter) {
+            $this->assertInstanceOf('MphpFlickrPhotosGetSizes\Adapter\Json\Result\SizeResultAdapter', $jsonResultAdapter);
+        }
+    }
+
     /**
      * Helper method
      *
