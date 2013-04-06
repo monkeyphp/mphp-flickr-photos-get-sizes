@@ -57,17 +57,35 @@ class SizeResultAdapter extends \MphpFlickrBase\Adapter\Json\Result\AbstractResu
 
     public function getSource()
     {
-
+        if (! isset($this->source)) {
+            $decodedResults = $this->getDecodedResults();
+            $this->source = (array_key_exists('source', $decodedResults) && is_string($decodedResults['source']))
+                ? $decodedResults['source']
+                : null;
+        }
+        return $this->source;
     }
 
     public function getUrl()
     {
-
+        if (! isset($this->url)) {
+            $decodedResults = $this->getDecodedResults();
+            $this->url = (array_key_exists('url', $decodedResults) && is_string($decodedResults['url']))
+                ? $decodedResults['url']
+                : null;
+        }
+        return $this->url;
     }
 
     public function getWidth()
     {
-
+        if (! isset($this->width)) {
+            $decodedResults = $this->getDecodedResults();
+            $this->width = (array_key_exists('width', $decodedResults) && (is_string($decodedResults['width'])) || is_int($decodedResults['width']))
+                ? $decodedResults['width']
+                : null;
+        }
+        return $this->width;
     }
 
 }

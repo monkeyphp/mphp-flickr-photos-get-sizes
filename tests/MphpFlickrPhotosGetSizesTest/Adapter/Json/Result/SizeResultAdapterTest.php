@@ -38,6 +38,25 @@ class SizeResultAdapterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('photo', $jsonSizeResultAdapter->getMedia());
     }
 
+    public function testGetSource()
+    {
+        $jsonSizeResultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Json\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
+        $this->assertEquals('http://farm9.staticflickr.com/8530/8558949624_5d509a7677_s.jpg', $jsonSizeResultAdapter->getSource());
+    }
+
+    public function testGetUrl()
+    {
+        $jsonSizeResultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Json\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
+        $this->assertEquals('http://www.flickr.com/photos/65448995@N05/8558949624/sizes/sq/', $jsonSizeResultAdapter->getUrl());
+    }
+
+    public function testGetWidth()
+    {
+        $jsonSizeResultAdapter = new \MphpFlickrPhotosGetSizes\Adapter\Json\Result\SizeResultAdapter($this->getResults(), $this->getParameters());
+        $this->assertEquals('75', $jsonSizeResultAdapter->getWidth());
+    }
+
+
     protected function getParameters()
     {
         return array();
