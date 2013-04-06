@@ -55,29 +55,68 @@ class SizesResultSetAdapter extends \MphpFlickrBase\Adapter\Json\ResultSet\Abstr
     /**
      * Return the can blog value from the results
      *
-     * @return string|null
+     * @return string|int|null
      */
     public function getCanBlog()
     {
+        if (! isset($this->canBlog)) {
 
+            $this->canBlog = null;
+
+            $decodedResults = $this->getDecodedResults();
+
+            if (array_key_exists('sizes', $decodedResults) && ((boolean)$sizes = $decodedResults['sizes']) && (is_array($sizes))) {
+                $this->canBlog = ( array_key_exists('canblog', $sizes) && (is_string($sizes['canblog']) || is_int($sizes['canblog'])) )
+                    ? $sizes['canblog']
+                    : null;
+            }
+        }
+        return $this->canBlog;
     }
 
     /**
      * Return the can download value from the results
      *
-     * @return string|null
+     * @return string|int|null
      */
     public function getCanDownload()
     {
+        if (! isset($this->canDownload)) {
+            $this->canDownload = null;
 
+            $decodedResults = $this->getDecodedResults();
+
+            if (array_key_exists('sizes', $decodedResults) && ((boolean)$sizes = $decodedResults['sizes']) && (is_array($sizes))) {
+                $this->canDownload = ( array_key_exists('candownload', $sizes) && (is_string($sizes['candownload']) || is_int($sizes['candownload'])) )
+                    ? $sizes['candownload']
+                    : null;
+            }
+        }
+        return $this->canDownload;
     }
 
     /**
      * Return the can print value from the results
      *
-     * @return string|null
+     * @return string|int|null
      */
     public function getCanPrint()
+    {
+        if (! isset($this->canPrint)) {
+            $this->canPrint = null;
+
+            $decodedResults = $this->getDecodedResults();
+
+            if (array_key_exists('sizes', $decodedResults) && ((boolean)$sizes = $decodedResults['sizes']) && (is_array($sizes))) {
+                $this->canPrint = ( array_key_exists('canprint', $sizes) && (is_string($sizes['canprint']) || is_int($sizes['canprint'])) )
+                    ? $sizes['canprint']
+                    : null;
+            }
+        }
+        return $this->canPrint;
+    }
+
+    protected function getResultList()
     {
 
     }
