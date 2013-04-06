@@ -36,7 +36,7 @@ class SizesResultSet extends \MphpFlickrBase\ResultSet\AbstractResultSet
         if ($adapter instanceof \MphpFlickrPhotosGetSizes\Adapter\Interfaces\ResultSet\SizesResultSetAdapterInterface ) {
             return parent::setAdapter($adapter);
         }
-        throw new \InvalidArgumentException('Invalid adapter supplied');
+        throw new \MphpFlickrBase\Exception\InvalidAdapterException('Invalid adapter supplied');
     }
 
     /**

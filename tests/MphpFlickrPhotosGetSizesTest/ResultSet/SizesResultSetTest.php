@@ -24,13 +24,19 @@ use PHPUnit_Framework_TestCase;
 class SizesResultSetTest extends PHPUnit_Framework_TestCase
 {
 
+    /**
+     * Test that we can construct an instance of SizesResultSet
+     */
     public function test__construct()
     {
         $resultSet = new \MphpFlickrPhotosGetSizes\ResultSet\SizesResultSet($this->getResultSetAdapter());
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * Test that supplying an invalid Adapter instance to the ResultSet
+     * throws an InvalidAdapterException
+     *
+     * @expectedException MphpFlickrBase\Exception\InvalidAdapterException
      */
     public function testInvalidAdapterThrowsException()
     {
@@ -76,7 +82,7 @@ class SizesResultSetTest extends PHPUnit_Framework_TestCase
     protected function getParameters()
     {
         return array(
-            'method'   => 'flickr.photos.search',
+            'method'   => 'flickr.photos.getSizes',
             'photo_id' => '8558949624'
         );
     }
